@@ -9,9 +9,9 @@ import { Registration } from 'src/schemas/registration.schema';
 @Injectable()
 export class PortfolioService {
     constructor(@InjectModel(SchemaConstant.PORTFOLIO) private portfolioModel:mongoose.Model<Portfolio>){}
-   async createPortfolio(portfolio:Portfolio):Promise<string>{
+   async createPortfolio(portfolio:Portfolio):Promise<boolean>{
         const res=await this.portfolioModel.create(portfolio);
-        return res._id?"success":null
+        return res._id?true:false
     }
     async getPortfolio():Promise<Portfolio>{
         const res=await this.portfolioModel.findOne()

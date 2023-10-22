@@ -1,15 +1,21 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-
 @Schema({
-    timestamps:true
+    timestamps: true,
+    toJSON: {
+        transform: function (doc: any, ret: any) {
+            ret.RecordID = ret._id
+            delete ret._id
+            delete ret.__v;
+            return ret;
+        },
+    }
 })
-
-export class Registration{
+export class Registration {
     @Prop()
-    Username:string;
+    Username: string;
     @Prop()
-    Password:string
+    Password: string
 }
 
-const schema=SchemaFactory.createForClass(Registration);
-export const registationSchema=schema;
+const schema = SchemaFactory.createForClass(Registration);
+export const registationSchema = schema;

@@ -15,10 +15,6 @@ export class AuthenticationController {
    @Post(RoutesConstant.REGISTRATION)
   async createRegistration(@Body() requestData:Registration){
      const register= await this.authenticationService.registerUser(requestData);
-     if(register&&register.Username){
-        return "success"
-     }else{
-        return null
-     }
+     return register.Username?true:false
    }
 }

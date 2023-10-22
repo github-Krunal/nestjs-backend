@@ -12,8 +12,8 @@ export class AuthenticationService {
         const res=await this.registraionModel.create(user);
         return res;
     }
-   async login(user:Registration):Promise<IRegistration[]>{
-        const res=await this.registraionModel.find(user);
+   async login(user:Registration):Promise<IRegistration>{
+        const res=await this.registraionModel.findOne(user);
         return res;
     }
 }

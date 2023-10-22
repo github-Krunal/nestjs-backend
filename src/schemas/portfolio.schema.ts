@@ -1,10 +1,19 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
+import { Document } from "mongoose";
 
 @Schema({
-    timestamps:true
+    timestamps:true,
+    toJSON:{
+        transform: function (doc: any, ret: any) {
+            ret.RecordID = ret._id
+        delete ret._id
+            delete ret.__v;
+            return ret;
+          },
+    }
 })
 
-export class Portfolio{
+export class Portfolio extends Document{
     @Prop()
     PortfolioTitle:string;
     @Prop()
