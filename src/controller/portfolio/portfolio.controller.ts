@@ -16,4 +16,8 @@ export class PortfolioController {
     getPortfolio(){
         return this.portfolioService.getPortfolio();
     }
+    @Post(RoutesConstant.PORTFOLIOUPDATE)
+    portfolioUpdate(@Body() responseData: Portfolio) {
+        return this.portfolioService.updatePortfolio(responseData)
+    }
 }
