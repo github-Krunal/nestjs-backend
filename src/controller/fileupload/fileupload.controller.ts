@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Req, Res, StreamableFile, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Controller, Get, HttpStatus, Param, Post, Req, Res, StreamableFile, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import{diskStorage} from "multer"
@@ -17,7 +17,7 @@ export class FileuploadController {
         })
     }))
     fileUpload(@UploadedFile() file) {
-        return file.path
+        return { status: HttpStatus.OK, url:file.path }
     }
     @Get(RoutesConstant.OPENFILE)
     async getFile(@Param('filename') filename: string, @Res() response: Response) {
@@ -27,9 +27,8 @@ export class FileuploadController {
     }
     @Get(RoutesConstant.DOWNLOADFILE)
     async downloadFile(@Param('filename') filename: string, @Res() res: Response) {
-        // Set the appropriate headers for the download
         res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
-        res.sendFile(filename, { root: './uploads' }); // Specify the folder where files are stored
+        res.sendFile(filename, { root: './uploads' }); 
       }
 
 }
