@@ -6,5 +6,6 @@ export  class RoutesConstant{
     public static PORTFOLIOGET=RoutesConstant.BASEURL+"portfolioget"
     public static PORTFOLIOUPDATE=RoutesConstant.BASEURL+"portfolioupdate"
     public static FILEUPLOAD=RoutesConstant.BASEURL+"uploadFile"
+    public static DOWNLOADFILE=RoutesConstant.BASEURL+"download/:filename"
     public static OPENFILE=RoutesConstant.BASEURL+"uploads/:filename"
 }
