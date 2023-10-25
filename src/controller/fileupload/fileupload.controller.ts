@@ -1,9 +1,9 @@
-import { Controller, Get, HttpStatus, Param, Post, Req, Res, StreamableFile, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { Body, Controller, Get, HttpStatus, Param, Post, Req, Res, StreamableFile, UploadedFile, UseInterceptors } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import{diskStorage} from "multer"
 import { Response } from 'express';
-import { createReadStream } from 'fs';
+import { createReadStream, unlink, unlinkSync } from 'fs';
 
 @Controller()
 export class FileuploadController {
@@ -30,5 +30,9 @@ export class FileuploadController {
         res.setHeader('Content-Disposition', `attachment; filename=${filename}`);
         res.sendFile(filename, { root: './uploads' }); 
       }
-
+      @Post(RoutesConstant.DELETEFILE)
+      async deleteFile(@Param('filename') filename: string) {
+          unlinkSync(`./uploads/${filename}`)
+    return true
+        }
 }
