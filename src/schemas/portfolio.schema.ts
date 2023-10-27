@@ -57,6 +57,8 @@ export class Portfolio extends Document{
     @Prop()
     ContactDescription:string
     @Prop()
+    Resume:string
+    @Prop()
     CreatedByGuid:string
 }
 

@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post } from '@nestjs/common';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import { Portfolio } from 'src/schemas/portfolio.schema';
+import { Project } from 'src/schemas/project.schema';
 import { PortfolioService } from 'src/services/portfolio.service';
 
 @Controller()
@@ -19,5 +20,9 @@ export class PortfolioController {
     @Post(RoutesConstant.PORTFOLIOUPDATE)
     portfolioUpdate(@Body() responseData: Portfolio) {
         return this.portfolioService.updatePortfolio(responseData)
+    }
+    @Post(RoutesConstant.PROJECTSAVE)
+    projectSave(@Body() responseData: Project[]) {
+        return this.portfolioService.createProject(responseData)
     }
 }

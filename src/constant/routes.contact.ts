@@ -9,4 +9,5 @@ export  class RoutesConstant{
     public static DOWNLOADFILE=RoutesConstant.BASEURL+"download/:filename"
     public static OPENFILE=RoutesConstant.BASEURL+"uploads/:filename"
     public static DELETEFILE=RoutesConstant.BASEURL+"deleteFile/:filename"
+    public static PROJECTSAVE=RoutesConstant.BASEURL+"projectsave"
 }
