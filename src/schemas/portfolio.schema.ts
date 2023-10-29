@@ -60,6 +60,7 @@ export class Portfolio extends Document{
     Resume:string
     @Prop()
     CreatedByGuid:string
+    
 }
 
 const schema=SchemaFactory.createForClass(Portfolio);

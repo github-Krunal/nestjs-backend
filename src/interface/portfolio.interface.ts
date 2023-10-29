@@ -1,4 +1,6 @@
-export interface IPortfolio {
+import { IProject } from "./project.interface";
+
+export class IPortfolio {
     RecordID?:string;
     PortfolioTitle?:string;
     MainSkill?:string;
@@ -22,4 +24,5 @@ export interface IPortfolio {
     ExperienceDescription?:string;
     ContactDescription?:string;
     CreatedByGuid?:string;
+    Project?:IProject[]=[];
 }
