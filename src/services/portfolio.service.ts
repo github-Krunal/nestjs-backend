@@ -30,6 +30,14 @@ export class PortfolioService {
         })
         return res
     }
+    async updateExperience(experience: IExperiece): Promise<IExperiece> {
+        const res = await this.experienceModel.findByIdAndUpdate(new ObjectId(experience.RecordID), {
+            $set: experience
+        }, {
+            new: true
+        })
+        return res
+    }
     async createProject(projects:Project[]):Promise<boolean>{
         const res=await this.projectModel.insertMany(projects);
         return true

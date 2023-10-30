@@ -13,5 +13,7 @@ export  class RoutesConstant{
     public static EXPERIENCESAVE=RoutesConstant.BASEURL+"experiencesave"
     public static PROJECTGET=RoutesConstant.BASEURL+"projectget"
     public static EXPERIENCEGET=RoutesConstant.BASEURL+"experienceget"
+    public static EXPERIENCEUPDATE=RoutesConstant.BASEURL+"experienceupdate"
+
 
 }

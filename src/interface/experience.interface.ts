@@ -5,4 +5,5 @@ export interface IExperiece{
     Language:string;
     ImageUrl:string;
     CreatedByGuid:string;
+    RecordID:string;
 }
