@@ -12,7 +12,7 @@ import { IExperiece } from 'src/interface/experience.interface';
 @Injectable()
 export class PortfolioService {
     constructor(@InjectModel(SchemaConstant.PORTFOLIO) private portfolioModel:mongoose.Model<IPortfolio>
-    ,@InjectModel(SchemaConstant.PROJECT) private projectModel:mongoose.Model<Project>,@InjectModel(SchemaConstant.EXPERIENCE) private experienceModel:mongoose.Model<IExperiece>){}
+    ,@InjectModel(SchemaConstant.PROJECT) private projectModel:mongoose.Model<IProject>,@InjectModel(SchemaConstant.EXPERIENCE) private experienceModel:mongoose.Model<IExperiece>){}
    async createPortfolio(portfolio:IPortfolio):Promise<boolean>{
         const res=await this.portfolioModel.create(portfolio);
         return res._id?true:false
@@ -33,6 +33,14 @@ export class PortfolioService {
     async updateExperience(experience: IExperiece): Promise<IExperiece> {
         const res = await this.experienceModel.findByIdAndUpdate(new ObjectId(experience.RecordID), {
             $set: experience
+        }, {
+            new: true
+        })
+        return res
+    }
+    async updateProject(project: IProject): Promise<IProject> {
+        const res = await this.projectModel.findByIdAndUpdate(new ObjectId(project.RecordID), {
+            $set: project
         }, {
             new: true
         })

@@ -1,6 +1,7 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import { IExperiece } from 'src/interface/experience.interface';
+import { IProject } from 'src/interface/project.interface';
 import { Experience } from 'src/schemas/experience.schema';
 import { Portfolio } from 'src/schemas/portfolio.schema';
 import { Project } from 'src/schemas/project.schema';
@@ -41,5 +42,9 @@ export class PortfolioController {
     @Post(RoutesConstant.EXPERIENCEUPDATE)
     experienceUpdate(@Body() responseData: IExperiece) {
         return this.portfolioService.updateExperience(responseData)
+    }
+    @Post(RoutesConstant.PROJECTUPDATE)
+    projectUpdate(@Body() responseData: IProject) {
+        return this.portfolioService.updateProject(responseData)
     }
 }
