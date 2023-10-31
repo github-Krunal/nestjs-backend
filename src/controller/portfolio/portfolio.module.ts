@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
 import { SchemaConstant } from 'src/constant/schema.constant';
+import { ContactSchema } from 'src/schemas/contact.schema';
 import { ExperienceSchema } from 'src/schemas/experience.schema';
 import { portfolioSchema } from 'src/schemas/portfolio.schema';
 import { projectSchema } from 'src/schemas/project.schema';
@@ -20,6 +21,10 @@ import { PortfolioController } from './portfolio.controller';
     {
       name:SchemaConstant.EXPERIENCE,
       schema:ExperienceSchema
+    },
+    {
+      name:SchemaConstant.CONTACT,
+      schema:ContactSchema
     }
   ])],
   controllers: [PortfolioController],

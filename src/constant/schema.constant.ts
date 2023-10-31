@@ -3,4 +3,5 @@ export  class SchemaConstant{
     public static PORTFOLIO="Portfolio"
     public static PROJECT="Project"
     public static EXPERIENCE="Experience"
+    public static CONTACT="Contact"
 }
