@@ -13,7 +13,13 @@ export class AuthenticationService {
         return res;
     }
    async login(user:Registration):Promise<IRegistration>{
-        const res=await this.registraionModel.findOne(user);
+        
+        const res=await this.registraionModel.findOne({
+            $and : [ 
+                {"Username": user.Username},
+                {"Password": user.Password}
+            ],
+        })
         return res;
     }
 }

@@ -8,7 +8,7 @@ import { AuthenticationService } from 'src/services/authentication/authenticatio
 @Controller()
 export class AuthenticationController {
     constructor(private authenticationService:AuthenticationService){}
-   @Get(RoutesConstant.LOGIN)
+   @Post(RoutesConstant.LOGIN)
    async getLogin(@Body() requestData:Registration){
     return this.authenticationService.login(requestData)
    }
