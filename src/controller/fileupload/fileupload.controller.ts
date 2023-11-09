@@ -3,12 +3,12 @@ import { FileInterceptor } from '@nestjs/platform-express';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import { Response } from 'express';
 import {  unlinkSync } from 'fs';
-import { diskStorage } from 'multer';
+const multer  = require('multer')
 @Controller()
 export class FileuploadController {
     @Post(RoutesConstant.FILEUPLOAD)
     @UseInterceptors(FileInterceptor('file', {
-        storage: diskStorage({
+        storage: multer.diskStorage({
             destination: "./uploads",
             filename: (req, file, cb) => {
                 cb(null, `${file.originalname}`)
