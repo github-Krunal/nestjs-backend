@@ -14,7 +14,6 @@ import { PortfolioModule } from './controller/portfolio/portfolio.module';
     AuthenticationModule,
     PortfolioModule,
     FileuploadModule,
-   
   ],
   controllers: [AppController],
   providers: [AppService],
