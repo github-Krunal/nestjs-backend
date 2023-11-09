@@ -1,6 +1,5 @@
 {
   "compilerOptions": {
-    "types": ["mongodb"],
     "module": "commonjs",
     "declaration": true,
     "removeComments": true,
