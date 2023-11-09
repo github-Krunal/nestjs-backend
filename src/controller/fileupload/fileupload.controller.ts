@@ -2,9 +2,8 @@ import { Body, Controller, Get, HttpStatus, Param, Post, Req, Res, StreamableFil
 import { FileInterceptor } from '@nestjs/platform-express';
 import { RoutesConstant } from 'src/constant/routes.contact';
 import { Response } from 'express';
-import { createReadStream, unlink, unlinkSync } from 'fs';
+import {  unlinkSync } from 'fs';
 import { diskStorage } from 'multer';
-
 @Controller()
 export class FileuploadController {
     @Post(RoutesConstant.FILEUPLOAD)
