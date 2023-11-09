@@ -10,7 +10,7 @@ import { PortfolioModule } from './controller/portfolio/portfolio.module';
 
 @Module({
   imports: [
-    MongooseModule.forRoot('mongodb://127.0.0.1:27017/codeInnvoator'),
+    MongooseModule.forRoot('mongodb+srv://kkumbhare4912:mEqAfFRKU9X9VdgV@cluster0.kt1pf6y.mongodb.net/codeInnvoator?retryWrites=true&w=majority'),
     AuthenticationModule,
     PortfolioModule,
     FileuploadModule,
