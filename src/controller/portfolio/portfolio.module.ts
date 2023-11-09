@@ -28,7 +28,6 @@ import { PortfolioController } from './portfolio.controller';
       schema:ContactSchema
     }
   ])
-
 ],
   controllers: [PortfolioController],
   providers:[PortfolioService]
