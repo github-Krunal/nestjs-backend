@@ -9,7 +9,8 @@ import { PortfolioService } from 'src/services/portfolio.service';
 import { PortfolioController } from './portfolio.controller';
 
 @Module({
-  imports:[MongooseModule.forFeature([
+  imports:[
+    MongooseModule.forFeature([
     {
       name:SchemaConstant.PORTFOLIO,
       schema:portfolioSchema
@@ -26,7 +27,9 @@ import { PortfolioController } from './portfolio.controller';
       name:SchemaConstant.CONTACT,
       schema:ContactSchema
     }
-  ])],
+  ])
+
+],
   controllers: [PortfolioController],
   providers:[PortfolioService]
 })
